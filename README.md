@@ -7,16 +7,12 @@ Este README fornece um guia para a utilização do DistilBERT na classificação
 Antes de executar o código, certifique-se de ter as dependências necessárias instaladas:
 
 ```bash
-pip install transformers tensorflow pandas nltk
+pip install transformers tensorflow pandas nltk scikit-learn
 ```
 
 ## Início
 1. Preparação do Conjunto de Dados:
 - Verifique a existência de um arquivo CSV (data.csv neste caso).
-- Instale, se necessário, as bibliotecas
-```bash
-pip install pandas scikit-learn
-```
 2. Pré-processamento dos Dados:
 - Carregue e pré-processe o conjunto de dados usando o código fornecido.
 - Tokenize o texto usando o tokenizador do DistilBERT.
