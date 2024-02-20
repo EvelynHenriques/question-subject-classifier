@@ -11,7 +11,6 @@ from nltk.corpus import stopwords
 nltk.download('stopwords')
 stopw = stopwords.words('english')
 
-caminho = 'data.csv'
 df = pd.read_csv('data.csv', sep=';', encoding='latin1', names=["label", "question"])
 
 df['count'] = df['question'].apply(lambda x: len(x.split()))
@@ -19,7 +18,6 @@ df['count'] = df['question'].apply(lambda x: len(x.split()))
 category_count = df['label'].value_counts()
 
 categories = category_count.index
-
 
 df['encoded_text'] = df['label'].astype('category').cat.codes
 #print(df)
