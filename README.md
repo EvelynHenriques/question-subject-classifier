@@ -47,19 +47,18 @@ with open('perguntas.txt', 'r', encoding='utf-8') as file:
 
 for pergunta in perguntas:
     pergunta = pergunta.strip()  
+    print(f"Pergunta: {pergunta}")
     predict_input = tokenizer_fine_tuned.encode(
         pergunta,
-        truncation=True,
-        padding=True,
-        return_tensors='tf'
+        truncation = True,
+        padding = True,
+        return_tensors = 'tf'    
     )
 
     output = model_fine_tuned(predict_input)[0]
-    prediction_value = tf.argmax(output, axis=1).numpy()[0]
 
+    prediction_value = tf.argmax(output, axis = 1).numpy()[0]
     label_mapping = dict(zip(df['encoded_text'].astype('category'), df['label']))
     predicted_label = label_mapping[prediction_value]
-
-    echo "Pergunta: $pergunta"
-    echo "Rótulo Previsto: $predicted_label"
+    print(predicted_label)
 ```
